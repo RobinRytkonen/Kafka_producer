@@ -5,6 +5,17 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class KafkaConfig {
 
+//    Todo here actually chould be something like
+//    @Bean
+//    public NewTopic playerEventTopic() {
+//        return TopicBuilder
+//                .name("local.player-events")
+//                .config(TopicConfig.RETENTION_MS_CONFIG, String.valueOf(1000)) // how long you plan to keep massages in milliseconds
+//                .partitions(1) // As there is only one consumer
+//                .replicas(1)
+//                .build();
+//    }
+
  /*   @Bean
     public ProducerFactory<String, Player>
     producerFactory() {
