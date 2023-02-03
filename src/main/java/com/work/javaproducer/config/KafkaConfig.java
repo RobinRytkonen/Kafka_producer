@@ -1,36 +1,35 @@
 package com.work.javaproducer.config;
 
+import com.work.javaproducer.util.Constants;
+import org.apache.kafka.clients.admin.NewTopic;
+import org.apache.kafka.common.config.TopicConfig;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.kafka.config.TopicBuilder;
+
+import static com.work.javaproducer.util.Constants.DEPOSIT_TOPIC;
+import static com.work.javaproducer.util.Constants.REGISTER_TOPIC;
 
 @Configuration
 public class KafkaConfig {
 
-//    Todo here actually chould be something like
-//    @Bean
-//    public NewTopic playerEventTopic() {
-//        return TopicBuilder
-//                .name("local.player-events")
-//                .config(TopicConfig.RETENTION_MS_CONFIG, String.valueOf(1000)) // how long you plan to keep massages in milliseconds
-//                .partitions(1) // As there is only one consumer
-//                .replicas(1)
-//                .build();
-//    }
-
- /*   @Bean
-    public ProducerFactory<String, Player>
-    producerFactory() {
-        Map<String, Object> config = new HashMap<>();
-        config.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, "localhost:9092");
-        config.put(ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG, StringSerializer.class);
-        config.put(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG, JsonSerializer.class);
-        config.put(JsonDeserializer.USE_TYPE_INFO_HEADERS,false);
-        return new DefaultKafkaProducerFactory<>(config);
+    @Bean
+    public NewTopic registerPlayerTopic() {
+        return TopicBuilder
+                .name(REGISTER_TOPIC)
+                .config(TopicConfig.RETENTION_MS_CONFIG, String.valueOf(10000))
+                .partitions(1)
+                .replicas(1)
+                .build();
     }
 
     @Bean
-    public KafkaTemplate<String, Player>
-    kafkaTemplate() {
-        return new KafkaTemplate<>(
-                producerFactory());
-    }*/
+    public NewTopic depositWinTopic() {
+        return TopicBuilder
+                .name(DEPOSIT_TOPIC)
+                .config(TopicConfig.RETENTION_MS_CONFIG, String.valueOf(10000))
+                .partitions(1)
+                .replicas(1)
+                .build();
+    }
 }
