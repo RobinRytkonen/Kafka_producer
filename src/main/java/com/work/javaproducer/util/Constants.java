@@ -1,8 +1,8 @@
-package com.work.javaproducer.config;
+package com.work.javaproducer.util;
 
 public final class Constants {
 
-    public Constants() {
+    private Constants() {
     }
     public static final String DEPOSIT_TOPIC = "DepositTopic";
     public static final String REGISTER_TOPIC = "RegisterPlayerTopic";
