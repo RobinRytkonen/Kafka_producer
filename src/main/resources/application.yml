@@ -1,3 +1,5 @@
+server.port: 8089
+
 spring:
   kafka:
     producer:
@@ -9,6 +11,4 @@ spring:
           json:
             trusted:
               packages: "org.work.kafka.api"
-            add:
-              type:
-  #              headers: false
+

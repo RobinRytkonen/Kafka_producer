@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.work.kafka.api.RegisterPlayerDTO;
 import org.work.kafka.api.WinDepositDTO;
 
-import static com.work.javaproducer.config.Constants.*;
+import static com.work.javaproducer.util.Constants.*;
 
 @RestController
 public class PlayerController {
@@ -18,7 +18,7 @@ public class PlayerController {
 
     @PostMapping("/register")
     public String registerPlayer(@RequestBody RegisterPlayerDTO registerPlayerDTO) {
-        kafkaTemplate.send(REGISTER_TOPIC, registerPlayerDTO.getName(), registerPlayerDTO);
+        kafkaTemplate.send(REGISTER_TOPIC, registerPlayerDTO.getEmail(), registerPlayerDTO);
         return "Registered player successfully!";
     }
 
