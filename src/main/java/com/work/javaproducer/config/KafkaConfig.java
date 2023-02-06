@@ -1,6 +1,5 @@
 package com.work.javaproducer.config;
 
-import com.work.javaproducer.util.Constants;
 import org.apache.kafka.clients.admin.NewTopic;
 import org.apache.kafka.common.config.TopicConfig;
 import org.springframework.context.annotation.Bean;
